@@ -26,7 +26,7 @@
                 stderr: true
             },
             publish_dev: {
-                command: "tfx extension publish --service-url https://marketplace.visualstudio.com --manifests vss-extension.json --overrides-file configs/dev.json",
+                command: "tfx extension publish --service-url localhost:8080/tfs/DefaultCollection --manifests vss-extension.json --overrides-file configs/dev.json",
                 stdout: true,
                 stderr: true
             },

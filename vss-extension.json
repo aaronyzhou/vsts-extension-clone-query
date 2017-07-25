@@ -1,11 +1,11 @@
 {
     "manifestVersion": 1,
-    "id": "vsts-extension-ts-seed-simple",
-    "version": "0.1.1",
-    "name": "vsts-extension-ts-seed-simple",
+    "id": "vsts-extension-clone-query",
+    "version": "0.1.25",
+    "name": "vsts-extension-clone-query",
     "scopes": [ "vso.work", "vso.work_write" ],
-    "description": "Describe your extension.",
-    "publisher": "your-publisher",
+    "description": "Clones a query.",
+    "publisher": "aaronyzhou",
     "icons": {
         "default": "img/logo.png"
     },
@@ -65,13 +65,15 @@
     ],
     "contributions": [
         {
-            "id": "vsts-extension-ts-seed-simple-action",
+            "id": "vsts-extension-clone-query",
             "type": "ms.vss-web.action-provider",
-            "description": "",
+            "description": "clone query",
             "targets": [
-                "ms.vss-work-web.work-item-context-menu"
+                "ms.vss-work-web.work-item-query-menu"
             ],
             "properties": {
+                "text": "Custom query action",
+                "icon": "images/show-properties.png",
                 "group": "contributed",
                 "uri": "index.html"
             }
