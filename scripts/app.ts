@@ -1,7 +1,5 @@
 ///<reference types="vss-web-extension-sdk" />
-
 import { getClient } from "TFS/WorkItemTracking/RestClient";
-
 import { QueryHierarchyItem } from "TFS/WorkItemTracking/Contracts";
 
 var actionProvider = {
