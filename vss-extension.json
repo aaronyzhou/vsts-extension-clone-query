@@ -1,7 +1,7 @@
 {
     "manifestVersion": 1,
     "id": "vsts-extension-clone-query",
-    "version": "0.1.26",
+    "version": "0.1.28",
     "name": "vsts-extension-clone-query",
     "scopes": [ "vso.work", "vso.work_write" ],
     "description": "Clones a query.",

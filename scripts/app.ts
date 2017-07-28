@@ -10,9 +10,13 @@ var actionProvider = {
             action: (actionContext) => {
                 const webContext = VSS.getWebContext();
                 const lastPath = actionContext.query.path.lastIndexOf("/");
-                const name = actionContext.query.name + '-copy';
+                const name = actionContext.query.name;
 
-                const tryCreateQuery = (queryName:string, tries:number) => {
+                const tryCreateQuery = (baseName: string, queryName:string, tries:number) => {
+                    if(tries > 999) {
+                        return;
+                    }
+
                     const queryItem = <QueryHierarchyItem>{
                         wiql: actionContext.query.wiql,
                         path: actionContext.query.path.slice(0,lastPath),
@@ -27,17 +31,13 @@ var actionProvider = {
                         });
                     }, (reason)=>{
                         if(reason.message.indexOf("TF237018") !== -1) { 
-                            if(tries > 1) {
-                                tryCreateQuery(name + '-copy ('+ tries.toString() + ')', tries+1);
-                            } else {
-                                tryCreateQuery(name + '-copy', tries+1);
-                            }
+                            tryCreateQuery(baseName, baseName + '-copy ('+ (tries+2).toString() + ')', tries+1); 
                         } else {
-                            alert("Failed to create clone query"); 
+                            alert("Failed clone query"); 
                         }
                     });
                 }
-                tryCreateQuery(name, 0);                
+                tryCreateQuery(name, name+'-copy', 0);                
             }
         }];
     }
